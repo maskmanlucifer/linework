@@ -1,0 +1,41 @@
+import type { Doc } from '@maskmanlucifer/linework';
+
+/** Example: what happens between pressing Enter and seeing a page. */
+export const requestFlow: Doc = {
+  version: 1,
+  title: 'What happens when you press Enter',
+  steps: [
+    { caption: 'The browser asks DNS for the IP address of the host name.' },
+    { caption: 'It opens a TCP + TLS connection to the load balancer at that address.' },
+    { caption: 'The load balancer forwards the request to one of the identical app servers.' },
+    { caption: 'The app server queries the database for the data it needs.' },
+    { caption: 'The HTML travels back to the browser. The whole round trip took about 120 ms.' },
+  ],
+  elements: [
+    { id: 'title', type: 'text', x: 0, y: 0, text: 'What happens when you press Enter', font: 'serif', size: 32 },
+    { id: 'fig', type: 'text', x: 0, y: 48, text: 'Fig. 3 — one HTTP request, five hops', font: 'mono', size: 10.5, style: { stroke: 'muted' } },
+    { id: 'dc', type: 'frame', x: 410, y: 110, w: 570, h: 290, title: 'Data center · us-east' },
+    { id: 'browser', type: 'rect', x: 0, y: 170, w: 140, h: 100, radius: 8, text: 'Browser' },
+    { id: 'bar', type: 'line', x: 0, y: 190, x2: 140, y2: 190, style: { strokeWidth: 'thin' } },
+    { id: 'dns', type: 'rect', x: 210, y: 92, w: 120, h: 48, radius: 24, text: 'DNS', style: { fill: 'teal', stroke: 'teal' }, steps: { highlight: [1] } },
+    { id: 'lb', type: 'isobox', x: 450, y: 190, w: 64, d: 64, h: 26, text: 'LB', steps: { highlight: [2] } },
+    { id: 'app', type: 'isostack', x: 640, y: 168, w: 70, d: 70, h: 14, layers: 3, gap: 10, steps: { highlight: [3] } },
+    { id: 'db', type: 'cylinder', x: 860, y: 190, w: 90, h: 110, text: 'Postgres', steps: { highlight: [4] } },
+    { id: 'a1', type: 'line', x: 140, y: 200, x2: 210, y2: 116, route: 'elbow', endArrow: true, startArrow: true, steps: { show: [1], highlight: [1] } },
+    { id: 'n1', type: 'badge', x: 175, y: 116, n: 1, steps: { show: [1] } },
+    { id: 'a2', type: 'line', x: 140, y: 246, x2: 448, y2: 246, endArrow: true, steps: { show: [2], highlight: [2] } },
+    { id: 'n2', type: 'badge', x: 290, y: 246, n: 2, steps: { show: [2] } },
+    { id: 'a3', type: 'line', x: 562, y: 246, x2: 638, y2: 246, endArrow: true, steps: { show: [3], highlight: [3] } },
+    { id: 'n3', type: 'badge', x: 600, y: 222, n: 3, steps: { show: [3] } },
+    { id: 'a4', type: 'line', x: 763, y: 246, x2: 858, y2: 246, endArrow: true, steps: { show: [4], highlight: [4] } },
+    { id: 'n4', type: 'badge', x: 810, y: 222, n: 4, steps: { show: [4] } },
+    { id: 'r1', type: 'line', x: 905, y: 300, x2: 905, y2: 440, groupId: 'ret', style: { stroke: 'teal', dashed: true }, steps: { show: [5], highlight: [5] } },
+    { id: 'r2', type: 'line', x: 905, y: 440, x2: 70, y2: 440, groupId: 'ret', style: { stroke: 'teal', dashed: true }, steps: { show: [5], highlight: [5] } },
+    { id: 'r3', type: 'line', x: 70, y: 440, x2: 70, y2: 272, endArrow: true, groupId: 'ret', style: { stroke: 'teal', dashed: true }, steps: { show: [5], highlight: [5] } },
+    { id: 'n5', type: 'badge', x: 488, y: 440, n: 5, steps: { show: [5] } },
+    { id: 'ok', type: 'text', x: 510, y: 418, text: '200 OK · text/html', font: 'mono', size: 10.5, style: { stroke: 'teal' }, steps: { show: [5] } },
+    { id: 'rtt', type: 'dimension', x: 70, y: 470, x2: 905, y2: 470, text: '≈ 120 ms round trip', steps: { show: [5] } },
+    { id: 'co1', type: 'callout', x: 430, y: 330, tx: 500, ty: 262, text: 'TLS ends here' },
+    { id: 'co2', type: 'callout', x: 740, y: 330, tx: 700, ty: 290, text: 'Stateless replicas' },
+  ],
+};
