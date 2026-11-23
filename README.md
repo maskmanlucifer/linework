@@ -10,7 +10,7 @@ A diagram tool for calm technical explainer drawings: thin even strokes, warm pa
 | -------------------- | ----------------------------------------------------------------------------- |
 | `packages/linework`  | `@maskmanlucifer/linework`: JSON model, SVG renderer, React `Diagram` and `DiagramPlayer`. See its [README](packages/linework/README.md), including **Install**. |
 | `apps/editor`        | Vite + React editor that uses the library.                                    |
-| `site/`              | The about page. `.github/workflows/pages.yml` deploys it with the editor.     |
+| `site/`              | The about page. `pnpm deploy` publishes it with the editor to `gh-pages`.     |
 
 ## Run
 

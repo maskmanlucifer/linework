@@ -3,10 +3,16 @@
   "private": true,
   "type": "module",
   "packageManager": "pnpm@12.21.0",
-  "engines": { "node": ">=24" },
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm -r test",
-    "dev": "pnpm --filter @linework/editor dev"
+    "dev": "pnpm --filter @linework/editor dev",
+    "deploy": "pnpm build && rm -rf _site && mkdir -p _site/editor && cp -R site/. _site/ && cp -R apps/editor/dist/. _site/editor/ && gh-pages -d _site --nojekyll"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
