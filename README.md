@@ -1,11 +1,16 @@
 # linework
 
+**Editor:** <https://maskmanlucifer.github.io/linework/editor/> · **About:** <https://maskmanlucifer.github.io/linework/>
+
+![The memory hierarchy drawn in linework](site/img/03-memory.png)
+
 A diagram tool for calm technical explainer drawings: thin even strokes, warm paper, one accent color, mono uppercase labels with leader lines, isometric boxes and stacks, dimension lines, and step-by-step animated states.
 
 | Path                 | What                                                                          |
 | -------------------- | ----------------------------------------------------------------------------- |
-| `packages/linework`  | `@maskmanlucifer/linework`: JSON model, SVG renderer, React `Diagram` and `DiagramPlayer`. See its [README](packages/linework/README.md), including **Install privately**. |
+| `packages/linework`  | `@maskmanlucifer/linework`: JSON model, SVG renderer, React `Diagram` and `DiagramPlayer`. See its [README](packages/linework/README.md), including **Install**. |
 | `apps/editor`        | Vite + React editor that uses the library.                                    |
+| `site/`              | The about page. `.github/workflows/pages.yml` deploys it with the editor.     |
 
 ## Run
 
@@ -26,3 +31,7 @@ pnpm test        # run all tests
 - Steps panel: add and remove steps, captions, set per element "appear here", "last here", "only here", "always" and "highlight", preview with PREV / PLAY / NEXT.
 - File: autosave to localStorage, save/open JSON, export SVG and PNG (current step and theme), copy SVG.
 - Examples: hash table lookup, memory hierarchy (isometric), request flow.
+
+## License
+
+MIT. Built by [Maskman Lucifer](https://github.com/maskmanlucifer).

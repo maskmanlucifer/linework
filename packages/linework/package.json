@@ -2,7 +2,7 @@
   "name": "@maskmanlucifer/linework",
   "version": "0.1.0",
   "description": "Calm technical explainer diagrams: JSON model, SVG renderer and React components.",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
+    "access": "public"
   },
   "exports": {
     ".": {
@@ -23,7 +23,10 @@
       "import": "./dist/react/index.js"
     }
   },
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "tsup",
@@ -36,7 +39,9 @@
     "react": ">=18"
   },
   "peerDependenciesMeta": {
-    "react": { "optional": true }
+    "react": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/react": "^19.2.0",
@@ -46,5 +51,6 @@
     "tsup": "^9.0.0",
     "typescript": "~5.9.3",
     "vitest": "^5.1.1"
-  }
+  },
+  "homepage": "https://maskmanlucifer.github.io/linework/"
 }

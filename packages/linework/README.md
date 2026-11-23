@@ -60,13 +60,13 @@ import { Diagram, DiagramPlayer } from '@maskmanlucifer/linework/react';
 
 Every element has `id`, optional `style` (`stroke`: ink, muted, accent, teal; `fill`: none, paper, shade, accent, teal, hatch, dots; `strokeWidth`: thin, regular, bold; `dashed`), optional `steps` (`show: [from, to?]`, `highlight: number[]`, 1-based) and optional `groupId`.
 
-## Install privately
+## Install
 
 The package is not on the public npm registry. Use one of these three ways.
 
 ### 1. GitHub Packages (recommended)
 
-Make a GitHub personal access token (classic) with the `read:packages` scope. Your account must have access to the `maskmanlucifer/linework` repository. Then add an `.npmrc` file next to your `package.json`:
+GitHub Packages needs a token even for public packages. Make a GitHub personal access token (classic) with the `read:packages` scope. Then add an `.npmrc` file next to your `package.json`:
 
 ```ini
 @maskmanlucifer:registry=https://npm.pkg.github.com
@@ -86,9 +86,9 @@ cd packages/linework
 pnpm version patch && pnpm publish --no-git-checks
 ```
 
-`publishConfig` already points at `https://npm.pkg.github.com` with `access: restricted`.
+`publishConfig` already points at `https://npm.pkg.github.com` with `access: public`.
 
-### 2. Git dependency (pnpm)
+### 2. Git dependency (pnpm, no token)
 
 pnpm can install one package from a subfolder of a git repository. Pin a tag or commit:
 
@@ -104,7 +104,7 @@ allowBuilds:
   esbuild: true
 ```
 
-For a private repository, git must be able to clone it (an SSH key, or `gh auth setup-git`). npm cannot install a subfolder of a git repository, so npm users must use option 1 or 3.
+npm cannot install a subfolder of a git repository, so npm users must use option 1 or 3.
 
 ### 3. Local tarball (offline)
 
