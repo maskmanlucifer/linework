@@ -28,7 +28,7 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
-    "pack": "pnpm pack --pack-destination dist-pack",
+    "pack": "tsup && pnpm pack --pack-destination dist-pack",
     "prepare": "tsup",
     "typecheck": "tsc --noEmit"
   },
