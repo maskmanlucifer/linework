@@ -100,7 +100,7 @@ export function DiagramPlayer({
         <span style={{ color: 'var(--lw-muted)', marginLeft: 4 }}>
           Step {step} / {n}
         </span>
-        {caption && <span style={{ flexBasis: '100%', paddingTop: 4, textTransform: 'none', letterSpacing: 0 }}>{caption}</span>}
+        {caption && <span style={{ flexBasis: '100%', paddingTop: 4, textTransform: 'none', letterSpacing: 0, fontFamily: 'var(--lw-font-sans)', fontSize: 14 }}>{caption}</span>}
       </figcaption>
     </figure>
   );
