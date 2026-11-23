@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>linework</title>
+<meta name="description" content="Calm technical explainer diagrams: thin lines, warm paper, isometric boxes and step-by-step animation. An editor and an open-source library.">
+<meta property="og:title" content="linework">
+<meta property="og:image" content="img/03-memory.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { --paper: #f7f5f0; --surface: #fffefb; --ink: #1b1a18; --muted: #6c6862; --line: #dcd8d0; --accent: #e4572e; --teal: #1f6f66; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --paper: #161513; --surface: #1d1c19; --ink: #ece8e0; --muted: #a29d94; --line: #34312c; --accent: #f0714b; --teal: #5fb3a8; color-scheme: dark; } }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.6 'IBM Plex Sans', system-ui, sans-serif; }
+a { color: var(--teal); }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.top { display: flex; align-items: center; gap: 20px; height: 64px; border-bottom: 1px solid var(--line); }
+.logo { font: 400 28px 'Instrument Serif', serif; color: var(--ink); text-decoration: none; }
+.top nav { margin-left: auto; display: flex; gap: 18px; font-size: 14px; }
+.top nav a { color: var(--ink); text-decoration: none; opacity: 0.8; }
+.label { font: 500 11px 'IBM Plex Mono', monospace; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.label b { color: var(--accent); font-weight: 500; }
+h1, h2 { font-family: 'Instrument Serif', serif; font-weight: 400; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(48px, 8vw, 84px); line-height: 1; }
+h2 { font-size: clamp(30px, 4vw, 40px); line-height: 1.1; }
+p { margin: 0; max-width: 64ch; }
+.muted { color: var(--muted); }
+section { padding: 64px 0; border-bottom: 1px solid var(--line); display: grid; gap: 20px; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); text-decoration: none; font: 500 12px 'IBM Plex Mono', monospace; letter-spacing: 0.06em; text-transform: uppercase; }
+.btn--primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.plate { margin: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface); }
+.plate img { display: block; width: 100%; height: auto; }
+figcaption { margin-top: 8px; font: 400 12px 'IBM Plex Mono', monospace; color: var(--muted); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.two > * { min-width: 0; }
+@media (max-width: 760px) { .two { grid-template-columns: 1fr; } }
+.steps { display: flex; flex-wrap: wrap; gap: 8px; }
+.steps button { font: 500 11px 'IBM Plex Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.steps button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.cap { padding: 12px 14px; border-left: 2px solid var(--accent); background: var(--surface); }
+.cap .n { font: 500 12px 'IBM Plex Mono', monospace; color: var(--accent); margin-right: 8px; }
+pre { margin: 0; padding: 16px; overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); font: 400 13px/1.6 'IBM Plex Mono', monospace; }
+.foot { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 32px 0 48px; font: 400 12.5px 'IBM Plex Mono', monospace; color: var(--muted); }
+.foot a { color: var(--ink); }
+.foot .by { margin-left: auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="./">linework</a>
+    <nav><a href="#library">Library</a><a href="https://github.com/maskmanlucifer/linework">GitHub</a></nav>
+    <a class="btn btn--primary" href="editor/">Open the editor</a>
+  </header>
+
+  <section>
+    <span class="label">Editor and library · open source</span>
+    <h1>Calm diagrams for technical explanations</h1>
+    <p class="muted">Thin even lines, warm paper, one accent color, mono labels with leader lines, isometric boxes and dimension lines. A drawing can have steps, so a reader goes through an algorithm one move at a time.</p>
+    <div class="btns">
+      <a class="btn btn--primary" href="editor/">Open the editor</a>
+      <a class="btn" href="https://github.com/maskmanlucifer/linework">View the code</a>
+    </div>
+    <figure class="plate"><img src="img/03-memory.png" alt="The memory hierarchy drawn as stacked isometric slabs with leader-line labels." width="1440" height="860"></figure>
+  </section>
+
+  <section>
+    <span class="label"><b>01</b> · Steps</span>
+    <h2>One move at a time</h2>
+    <p class="muted">Each element can appear, disappear or turn to the accent color at a step. Select a step.</p>
+    <div class="steps" role="group" aria-label="Steps">
+      <button type="button" data-step="1" aria-pressed="true">Step 01</button>
+      <button type="button" data-step="2" aria-pressed="false">Step 02</button>
+      <button type="button" data-step="3" aria-pressed="false">Step 03</button>
+      <button type="button" data-step="4" aria-pressed="false">Step 04</button>
+    </div>
+    <figure class="plate"><img id="step-img" src="img/02-hash-step1.png" alt="Hash table lookup, step 1" width="1440" height="860"></figure>
+    <p class="cap" id="step-cap" aria-live="polite"><span class="n">1 / 4</span>Hash the key. The function turns "grape" into a number and takes it modulo the bucket count.</p>
+  </section>
+
+  <section>
+    <span class="label"><b>02</b> · Editor</span>
+    <h2>Fifteen tools, one shortcut each</h2>
+    <div class="two">
+      <figure class="plate" style="margin:0"><img src="img/04-request.png" alt="A request flow from browser through a load balancer and replicas to Postgres." width="1440" height="860"></figure>
+      <figure class="plate" style="margin:0"><img src="img/05-selected.png" alt="The inspector: stroke, weight, font and arrange controls for a selected label." width="1440" height="860"></figure>
+    </div>
+    <p class="muted">Rectangles, ellipses, isometric boxes and stacks, cylinders, lines and arrows, text, callouts, dimensions, frames and numbered badges. Snap, align, group, undo. Export SVG or PNG for the current step and theme.</p>
+  </section>
+
+  <section id="library">
+    <span class="label"><b>03</b> · Library</span>
+    <h2>Use drawings in your own pages</h2>
+    <p class="muted">Save a drawing as JSON in the editor, then render it with <code>@maskmanlucifer/linework</code>: an SVG renderer with no dependencies, and React components with step controls.</p>
+<pre>import { DiagramPlayer } from '@maskmanlucifer/linework/react';
+import doc from './hash-table.json';
+
+&lt;DiagramPlayer doc={doc} interval={2000} /&gt;</pre>
+    <figure class="plate"><img src="img/06-memory-dark.png" alt="The memory hierarchy in the dark theme." width="1440" height="860"></figure>
+    <figcaption>Colors are CSS variables: light, dark, or follow the reader's system.</figcaption>
+  </section>
+
+  <footer class="foot">
+    <a href="https://github.com/maskmanlucifer/linework">GitHub</a>
+    <a href="editor/">Editor</a>
+    <span>MIT license</span>
+    <span class="by">Built by <a href="https://github.com/maskmanlucifer">Maskman Lucifer</a></span>
+  </footer>
+</div>
+<script>
+(() => {
+  const caps = [
+    'Hash the key. The function turns "grape" into a number and takes it modulo the bucket count.',
+    'The result, 2, is an index: jump straight to bucket 2. No scan of the other buckets.',
+    'Bucket 2 already holds "apple". That is a collision, so compare and walk the chain.',
+    'Follow the next pointer and compare again: "grape" is found.',
+  ];
+  const img = document.getElementById('step-img');
+  const cap = document.getElementById('step-cap');
+  const btns = document.querySelectorAll('[data-step]');
+  btns.forEach((b) => b.addEventListener('click', () => {
+    const n = Number(b.dataset.step);
+    btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    img.src = `img/02-hash-step${n}.png`;
+    img.alt = `Hash table lookup, step ${n}`;
+    const tag = document.createElement('span'); tag.className = 'n'; tag.textContent = `${n} / 4`;
+    cap.replaceChildren(tag, caps[n - 1]);
+  }));
+})();
+</script>
+</body>
+</html>
