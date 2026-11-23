@@ -128,6 +128,7 @@ export function Inspector() {
             <textarea
               id="insp-text"
               rows={2}
+              onKeyDown={(e) => e.key === 'Escape' && e.currentTarget.blur()}
               value={(el as unknown as Record<string, string | undefined>)[tk] ?? ''}
               {...live((e, v) => ({ ...e, [tk]: v || (e.type === 'dimension' ? undefined : v) }) as Element)}
             />
